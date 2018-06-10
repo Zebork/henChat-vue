@@ -14,20 +14,6 @@ var sToken;
 var PBK;
 var addrMap = {};
 
-function randomStr(length, symbol=true) {
-    var gen = '';
-    if (symbol) {
-        var charLib = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_-+=|';
-    } else {
-        var charLib = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    }
-    
-    for (var i=0; i<length; i++) {
-        index = Math.round(Math.random() * (charLib.length - 1));
-        gen += charLib[index];
-    }
-    return gen;
-}
 
 WS.onopen = function() {
 
@@ -119,7 +105,7 @@ const store = new Vuex.Store({
                     PVK = gen;
                     let loginInfo = {
                         type: 'login',
-                        msg: "za(gmjMdWERl1S^Ip_Njz|PY4i7t7zY$fZDZ~vnO3skfnhSEGdMdx%WulmhF~tw#",
+                        msg: PVK,
                         time: now.getTime().toString()
                     }
                     WS.send(JSON.stringify(loginInfo));
@@ -128,11 +114,6 @@ const store = new Vuex.Store({
                         date: new Date(),
                         self: false
                     });
-                    // session.messages.push({
-                    //     content: "PBK: " + PVK,
-                    //     date: new Date(),
-                    //     self: false
-                    // });
 
                 }
                 else if(content === "2") {
@@ -141,11 +122,6 @@ const store = new Vuex.Store({
                         date: new Date(),
                         self: false
                     });
-                    // session.messages.push({
-                    //     content: "PVK: " + PVK,
-                    //     date: new Date(),
-                    //     self: false
-                    // });
                 } 
                 else if(content === "3") {
                     if(!PVK) {
@@ -242,7 +218,7 @@ WS.onmessage = function(e) {
         sToken = getMsg.msg;
         PBK = getMsg.to;
         store.state.sessions[0].messages.push({
-            content: "PBK:" + PBK,
+            content: "PBK: " + PBK,
             date: new Date(),
             self: false
         });

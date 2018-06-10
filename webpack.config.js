@@ -47,7 +47,7 @@ module.exports = {
     },
     // webpack-dev-server配置
     devServer: {
-        host: "124.16.83.153",
+        host: "localhost",
         historyApiFallback: true,
         noInfo: true
     },
