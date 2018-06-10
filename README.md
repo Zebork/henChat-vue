@@ -1,8 +1,6 @@
-# Chat by Vue + Webpack
+# henChat by Vue + Webpack
 
-[Live demo](http://coffcer.github.io/vue-chat/)
-
-<img width="600" src="https://github.com/Coffcer/vue-chat/blob/master/intro.jpg">
+Thanks to [Coffcer](https://github.com/Coffcer/vue-chat)'s vue-chat.
 
 ## Build Setup
 
@@ -16,3 +14,5 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+
+
